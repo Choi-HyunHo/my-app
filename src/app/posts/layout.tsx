@@ -1,5 +1,10 @@
 import style from "../layout.module.css";
 
+export const metadata = {
+    title: "여기는 Posts",
+    description: "Posts",
+};
+
 export default function PostsLayout({
     children,
 }: {
