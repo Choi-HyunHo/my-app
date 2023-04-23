@@ -26,7 +26,7 @@ export default function RootLayout({
                         </a>
                     </div>
                 </header>
-                {children} ➡️
+                {children}
             </body>
         </html>
     );
