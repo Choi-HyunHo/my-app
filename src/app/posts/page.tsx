@@ -1,6 +1,15 @@
 import Link from "next/link";
 
-const Posts = () => {
+// export const revalidate = 0;
+
+const Posts = async () => {
+    const res = await fetch("https://api.adviceslip.com/advice", {
+        next: { revalidate: 0 },
+        // cache : 'no-store'
+    });
+    const data = await res.json();
+    const randomText = data.slip.advice;
+
     return (
         <div>
             <ul>
@@ -14,6 +23,8 @@ const Posts = () => {
                     <Link href="/posts/lemon">lemon</Link>
                 </li>
             </ul>
+
+            <span>{randomText}</span>
         </div>
     );
 };
