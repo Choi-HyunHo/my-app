@@ -1,17 +1,17 @@
 import { getProducts } from "@/service/products";
 import Link from "next/link";
 
-const Products = () => {
+const Products = async () => {
     // 서버에 있는 제품의 리스트를 읽어옴
-    const products = getProducts();
+    const products = await getProducts();
 
     return (
         <>
             <div>이곳은 Products 페이지 입니다</div>
             <ul>
-                {products.map((product, index) => (
+                {products.map(({ id, name }, index) => (
                     <li key={index}>
-                        <Link href={`/products/${product}`}>{product}</Link>
+                        <Link href={`/products/${id}`}>{name}</Link>
                     </li>
                 ))}
             </ul>
