@@ -20,6 +20,18 @@ const nextConfig = {
 			}, // 위와 같은 형식으로 여러 개 만들 수 있습니다.
 		];
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/profile",
+				destination: "/about/my/profile",
+			},
+			{
+				source: "/item/:slug",
+				destination: "/posts/:slug",
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;
